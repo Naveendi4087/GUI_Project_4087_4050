@@ -1,0 +1,64 @@
+﻿<Window x:Class="GUI_Project.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI_Project.Windows"
+        mc:Ignorable="d"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:local1="clr-namespace:GUI_Project.View_Models"
+        Title="LoginWindow" Height="550" Width="800" WindowStyle="None" AllowsTransparency="True" 
+        Background="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local1:LoginWindowVM/>
+    </Window.DataContext>
+    <Border CornerRadius="50" MouseDown="Border_MouseDown">
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/backimage.png"/>
+        </Border.Background>
+        <Border CornerRadius="50" BorderThickness="5" Opacity="0.9" >
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462ADB" Offset="0"/>
+                    <GradientStop Color="#DA34AE" Offset="0.5"/>
+                    <GradientStop Color="#462ADB" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#060531" Offset="0"/>
+                    <GradientStop Color="#1B1448" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="closeButton"  Click="closeButton_Click1" Style="{StaticResource closeButton}" HorizontalAlignment="Right" Margin="0 0 30 0">
+                    <Icon:PackIconMaterial Kind="Close" Height="12"/>
+                </Button>
+
+                <Grid Grid.Row="1">
+                    <StackPanel Width="250" Grid.Row="1" Margin="0,35,0,0">
+                        <Image Source="/Images/Login1.png" Width="80"/>
+                        <TextBlock Text="Login" Style="{StaticResource mainHeading}"/>
+                        
+                        <TextBlock Text="USER NAME" Style="{StaticResource textBoxHeading}" Margin="0,35,0,0" />
+                        <TextBox x:Name="un"  Margin="10,5,0,0" Style="{StaticResource loginTB}" Text="{Binding UName}"/>
+                        <TextBlock Text="PASSWORD"  Margin="0,35,0,0" Style="{StaticResource textBoxHeading}"/>
+                        <TextBox x:Name="pw" Margin="10,5,0,0" Style="{StaticResource loginTB}" Text="{Binding PWord}"/>
+                        <Button  Content="LOGIN" Style="{StaticResource buttonStyle}" Margin="0 50 0 3" Click="Button_Click_1"/>
+
+                        <Button Content="Login as Admin" Width="100" Margin="0 10 0 0" Style="{StaticResource loginButton2}" Click="Button_Click"/>
+                        
+                    </StackPanel>
+
+
+                </Grid>
+            </Grid>
+        </Border>
+
+    </Border>
+</Window>
